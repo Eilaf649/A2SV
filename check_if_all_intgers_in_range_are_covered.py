@@ -6,9 +6,14 @@ class Solution(object):
         :type right: int
         :rtype: bool
         """
+        tracker=0
         for i in range(left, right+1):
             for r in ranges:
-                for j in range (2):
-                    if i>= r[j] and i<=r[j]:
-                        return True
-        return False
+                if i>= r[0] and i<=r[1]:
+                    tracker+=1
+                    break
+        if tracker==right-left+1:
+            return True
+        else:
+            return False
+        
