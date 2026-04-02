@@ -6,6 +6,37 @@
 class Solution(object):
 
     def isPalindrome(self, head):
+        fast=head
+        slow=head
+        while fast and fast.next:
+            fast=fast.next.next
+            slow=slow.next
+        #if fast:
+            #slow=slow.next
+        prev=None
+        current=slow
+        while slow:
+            nex=slow.next
+            slow.next=prev
+            prev=slow
+            slow=nex
+        fast=head
+        slow=prev
+        while slow:
+            if slow.val!=fast.val:
+                return False
+            fast=fast.next
+            slow=slow.next
+        return True
+        
+
+
+
+
+
+
+
+        """
         a=[]
         current=head
         while current:
@@ -15,4 +46,4 @@ class Solution(object):
             if a[i]!=a[len(a)-i-1]:
                 return False
         return True
-        
+        """
