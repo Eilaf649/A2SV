@@ -1,0 +1,20 @@
+class Solution(object):
+    def fun(self, rowIndex):
+        if rowIndex==0:
+            return [1]
+        prev= self.fun(rowIndex-1)
+        new=[1]*rowIndex
+        for i in range(1, rowIndex-1):
+            print(prev)
+            new[i]=prev[i]+prev[i-1]
+        prev=new
+        return prev
+    def getRow(self, rowIndex):
+        """
+        :type rowIndex: int
+        :rtype: List[int]
+        """
+        return self.fun(rowIndex+1)
+        
+
+        
